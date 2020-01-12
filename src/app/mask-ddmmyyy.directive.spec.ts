@@ -54,7 +54,11 @@ describe('MaskDDMMYYYDirective', () => {
   });
   it('2 pressed with existing string equals to 15/1, cursor at the end - 1', () => {
     const newState = MaskDDMMYYYDirective.computeNewState('15/1', 3, '2');
-    expect(newState).toEqual({string: '15/21/', position: 4});
+    expect(newState).toEqual({string: '15/1', position: 3});
+  });
+  it('1 pressed with existing string equals to 15/1, cursor at the end - 1', () => {
+    const newState = MaskDDMMYYYDirective.computeNewState('15/1', 3, '1');
+    expect(newState).toEqual({string: '15/11/', position: 4});
   });
   it('1 pressed with existing string equals to 15/12, cursor at the end', () => {
     const newState = MaskDDMMYYYDirective.computeNewState('15/12', 5, '1');
